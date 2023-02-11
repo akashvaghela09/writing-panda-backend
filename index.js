@@ -8,8 +8,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors({ origin: "*" }));
 
-const usersRoutes = require("./src/routes/user");
+const usersRoutes = require("./src/routes/user.js");
+const scrapRoutes = require("./src/routes/scrap.js");
 app.use("/users", usersRoutes);
+app.use("/scrap", scrapRoutes);
 
 app.get("/test", (req, res) => {
     res.status(200).json(`Server OK... ${process.pid}`);
